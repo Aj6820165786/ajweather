@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+</head>
+<body>
+    {{>navbar}}
+    <!-- main header -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_content">
+                    <form class="temp-form">
+                        <input type="text" id="cityName" placeholder="Enter Your City Name" autocomplete="off">
+                        <input type="submit" value="search" id="submitBtn">
+                    </form>
+                </div>
+
+                <div class="tempInfo">
+                    <div class="top-layer">
+                        <p id="day">Friday</p>
+                        <p id="Date">03 Dec</p>
+                    </div>
+                    <div class="main-layer">
+                        <p id="city_name">Get Output Here</p>
+                        <div class="middle-layer hide-data">
+                            <p id="temp"><span id="temp_real">0</span> <sup>o</sup>C</p>
+                            <p id="temp_status"> <i class="fa fa-cloud" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>    
+        </div>
+    </div>
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+    <script>
+      const getday= ()=>{
+            let weekday= new Array(7);
+             weekday[0]="Sunday";
+             weekday[1]="Monday";
+             weekday[2]="Tusday";
+             weekday[3]="Wednesday";
+             weekday[4]="Thursday";
+             weekday[5]="Friday";
+             weekday[6]="Saturday";
+             let curday= new Date();
+             days=weekday[curday.getDay()];
+             let day=document.getElementById('day');
+
+             
+             day.innerText=days;
+         };
+
+         getday();
+      
+        const d=document.getElementById('Date');
+        // const m=document.getElementById('month');
+        const Datecur=()=>{
+            var month= new Array(12);
+            month[0]="Jan";
+            month[1]="Feb";
+            month[2]="Mar";
+            month[3]="Apr";
+            month[4]="May";
+            month[5]="Jun";
+            month[6]="Jul";
+            month[7]="Aug";
+            month[8]="Sep";
+            month[9]="Oct";
+            month[10]="Nov";
+            month[11]="Dec";
+            var time= new Date();
+            var months=month[time.getMonth()];
+            var day=time.getDate();
+
+            d.innerText=`${day} ${months}`;
+            // m.innerText=months;
+
+        }
+        Datecur();       
+    </script>
+</body>
+</html>
